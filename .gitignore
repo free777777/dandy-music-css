@@ -1,0 +1,14 @@
+# Ignore everything by default — this repo only needs to publish the CSS file
+# so jsDelivr can serve it. Other project files (markup snippets, logos,
+# handover docs) stay untracked.
+*
+
+# Whitelist
+!.gitignore
+!README.md
+!css/
+!css/**
+
+# OS junk inside whitelisted dirs
+.DS_Store
+Thumbs.db

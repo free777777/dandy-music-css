@@ -1,0 +1,882 @@
+/**
+ * Dandy Music – Avada / Fusion Builder extras
+ * Enqueue in Avada: child theme, or Appearance → Customize → Additional CSS.
+ *
+ * Header: fully transparent · active nav item = solid black pill button
+ */
+
+:root {
+  --dm-nav-active-radius: 6px;
+}
+
+/* =========================================================================
+   Header: total transparency (no bar, no blur — only logo + links over hero)
+   ========================================================================= */
+
+.fusion-tb-header,
+.fusion-tb-header .fusion-sticky-container,
+.fusion-tb-header .fusion-fullwidth {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+.fusion-tb-header .fusion-builder-row-content,
+.fusion-tb-header .fusion-row {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+.fusion-tb-header .fusion-column-wrapper,
+.fusion-tb-header .fusion-column-inner-bg {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* =========================================================================
+   Theme Builder header (compact row, AWB menu)
+   ========================================================================= */
+
+.fusion-tb-header .fusion-builder-row-1.fusion-fullwidth {
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+
+.fusion-tb-header .fusion-builder-row-2.fusion-fullwidth {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+.fusion-tb-header .fusion-builder-row-2 .fusion-image-element {
+  max-width: 90px !important;
+}
+
+.fusion-tb-header .fusion-builder-row-2 .fusion-image-element img {
+  max-height: 40px !important;
+  width: auto !important;
+}
+
+.fusion-tb-header nav.avada-main-menu {
+  min-height: 0 !important;
+}
+
+.fusion-tb-header nav.avada-main-menu .awb-menu__main-a {
+  border-radius: var(--dm-nav-active-radius);
+  font-size: 12.5px !important;
+  line-height: 1.2 !important;
+  padding: 8px 11px !important;
+  letter-spacing: 1.5px !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fusion-tb-header nav.avada-main-menu .awb-menu__main-ul {
+  column-gap: 4px !important;
+}
+
+/* AWB: active / current = amber underline (no pill) */
+.fusion-tb-header nav.avada-main-menu li.current-menu-item > a,
+.fusion-tb-header nav.avada-main-menu li.current-menu-ancestor > a,
+.fusion-tb-header nav.avada-main-menu li.current-menu-parent > a,
+.fusion-tb-header nav.avada-main-menu li.current_page_item > a,
+.fusion-tb-header nav.avada-main-menu li.current_page_parent > a,
+.fusion-tb-header nav.avada-main-menu li.current_page_ancestor > a,
+.fusion-tb-header .awb-menu__main-li--active > .awb-menu__main-a,
+.fusion-tb-header .awb-menu__main-li.current-menu-item > .awb-menu__main-a {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #E8A23A !important;
+  position: relative;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+}
+
+.fusion-tb-header nav.avada-main-menu li.current-menu-item > a::after,
+.fusion-tb-header nav.avada-main-menu li.current-menu-ancestor > a::after,
+.fusion-tb-header nav.avada-main-menu li.current-menu-parent > a::after,
+.fusion-tb-header nav.avada-main-menu li.current_page_item > a::after,
+.fusion-tb-header nav.avada-main-menu li.current_page_parent > a::after,
+.fusion-tb-header nav.avada-main-menu li.current_page_ancestor > a::after,
+.fusion-tb-header .awb-menu__main-li--active > .awb-menu__main-a::after,
+.fusion-tb-header .awb-menu__main-li.current-menu-item > .awb-menu__main-a::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 11px !important;
+  right: 11px !important;
+  bottom: 2px !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, #E8A23A 0%, #F2C277 100%) !important;
+  border-radius: 2px !important;
+  pointer-events: none;
+}
+
+.fusion-tb-header nav.avada-main-menu li:not(.current-menu-item):not(.current-menu-ancestor):not(.current-menu-parent)
+  > a:hover,
+.fusion-tb-header .awb-menu__main-li:not(.awb-menu__main-li--active):not(.current-menu-item) > .awb-menu__main-a:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  color: #fff !important;
+}
+
+.fusion-tb-header #menu-offcanvas {
+  font-size: 16px !important;
+}
+
+/* =========================================================================
+   Fusion vertical tabs (modern stacked style)
+   ========================================================================= */
+
+.fusion-tabs .nav-tabs {
+  border: none !important;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.fusion-tabs .nav-tabs li {
+  border: none !important;
+  margin: 0 !important;
+}
+
+.fusion-tabs .nav-tabs li a {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  display: flex;
+  gap: 18px;
+  padding: 26px 34px;
+  position: relative;
+  text-decoration: none;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.fusion-tabs .nav-tabs li a .fusion-tab-heading {
+  color: #111;
+  font-size: 21px !important;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.fusion-tabs .nav-tabs li a i,
+.fusion-tabs .nav-tabs li a svg {
+  color: #111;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.fusion-tabs .nav-tabs li a::before {
+  background: transparent;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: background 0.3s ease;
+  width: 4px;
+}
+
+.fusion-tabs .nav-tabs li a:hover {
+  background: #000 !important;
+  border-color: #000 !important;
+  transform: translateX(6px);
+}
+
+.fusion-tabs .nav-tabs li a:hover .fusion-tab-heading,
+.fusion-tabs .nav-tabs li a:hover i,
+.fusion-tabs .nav-tabs li a:hover svg {
+  color: #fff !important;
+}
+
+.fusion-tabs .nav-tabs li a:hover::before {
+  background: #fff;
+}
+
+.fusion-tabs .nav-tabs li.active a {
+  background: #000 !important;
+  border-color: #000 !important;
+  transform: translateX(10px);
+}
+
+.fusion-tabs .nav-tabs li.active a .fusion-tab-heading,
+.fusion-tabs .nav-tabs li.active a i,
+.fusion-tabs .nav-tabs li.active a svg {
+  color: #fff !important;
+}
+
+.fusion-tabs .nav-tabs li.active a::before {
+  background: #fff;
+}
+
+.fusion-tabs .nav-tabs li a:focus,
+.fusion-tabs .nav-tabs li a:active {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.fusion-tabs .nav-tabs li a::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.fusion-tabs .nav-tabs li a:hover::after {
+  transform: translateX(100%);
+}
+
+/* =========================================================================
+   Classic Avada header + main menu (transparent bar, light links, black pill active)
+   ========================================================================= */
+
+.fusion-secondary-main-menu,
+.fusion-header,
+.fusion-header-wrapper {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.fusion-main-menu .fusion-menu > li > a,
+.fusion-main-menu .fusion-menu > li > a.fusion-bar-highlight {
+  align-items: center;
+  background: transparent !important;
+  border: none !important;
+  border-radius: var(--dm-nav-active-radius);
+  color: #fff !important;
+  display: flex;
+  font-size: 12.5px;
+  font-weight: 600;
+  justify-content: center;
+  letter-spacing: 1.5px;
+  overflow: visible;
+  padding: 8px 12px !important;
+  position: relative;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  text-transform: uppercase;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fusion-main-menu .fusion-menu > li > a .menu-text:after,
+.fusion-main-menu .fusion-menu > li > a::before,
+.fusion-main-menu .fusion-menu > li > a::after,
+.fusion-main-menu .fusion-menu > li > a.fusion-bar-highlight::before,
+.fusion-main-menu .fusion-menu > li > a.fusion-bar-highlight::after {
+  display: none !important;
+}
+
+.fusion-main-menu .fusion-menu > li:not(.current-menu-item):not(.current-menu-ancestor):not(.current-menu-parent):not(.current_page_item):not(.current_page_parent)
+  > a:hover,
+.fusion-main-menu .fusion-menu > li:not(.current-menu-item):not(.current-menu-ancestor):not(.current-menu-parent):not(.current_page_item):not(.current_page_parent)
+  > a.fusion-bar-highlight:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  color: #fff !important;
+}
+
+.fusion-main-menu .fusion-menu > li.current-menu-item > a,
+.fusion-main-menu .fusion-menu > li.current-menu-ancestor > a,
+.fusion-main-menu .fusion-menu > li.current-menu-parent > a,
+.fusion-main-menu .fusion-menu > li.current_page_item > a,
+.fusion-main-menu .fusion-menu > li.current_page_parent > a {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #E8A23A !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+}
+
+.fusion-main-menu .fusion-menu > li.current-menu-item > a::after,
+.fusion-main-menu .fusion-menu > li.current-menu-ancestor > a::after,
+.fusion-main-menu .fusion-menu > li.current-menu-parent > a::after,
+.fusion-main-menu .fusion-menu > li.current_page_item > a::after,
+.fusion-main-menu .fusion-menu > li.current_page_parent > a::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 12px !important;
+  right: 12px !important;
+  bottom: 2px !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, #E8A23A 0%, #F2C277 100%) !important;
+  border-radius: 2px !important;
+  pointer-events: none;
+}
+
+.fusion-main-menu .fusion-menu > li > a .fusion-caret,
+.fusion-main-menu .fusion-menu > li > a i.fusion-dropdown-indicator {
+  color: inherit !important;
+}
+
+.fusion-main-menu .fusion-menu > li {
+  margin: 0 2px 0 0;
+}
+
+.fusion-main-menu .fusion-menu {
+  align-items: center;
+}
+
+.fusion-main-menu .sub-menu {
+  background: #fff !important;
+  border: 1px solid #dcdcdc !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  padding: 10px 0 !important;
+}
+
+.fusion-main-menu .sub-menu li a {
+  background: #fff !important;
+  border-left: 3px solid transparent;
+  color: #111 !important;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  padding: 14px 22px !important;
+  text-transform: uppercase;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+.fusion-main-menu .sub-menu li a:hover {
+  background: #000 !important;
+  border-left-color: #fff !important;
+  color: #fff !important;
+  padding-left: 28px !important;
+}
+
+.fusion-main-menu .sub-menu li.current-menu-item > a,
+.fusion-main-menu .sub-menu li.current-menu-ancestor > a,
+.fusion-main-menu .sub-menu li.current_page_item > a {
+  background: #000 !important;
+  border-left-color: #fff !important;
+  color: #fff !important;
+}
+
+.fusion-sticky-menu .fusion-menu > li > a,
+.fusion-sticky-menu .fusion-menu > li > a.fusion-bar-highlight {
+  background: transparent !important;
+  border: 1px solid transparent;
+  color: #fff !important;
+}
+
+.fusion-sticky-menu .fusion-menu > li:not(.current-menu-item):not(.current-menu-ancestor):not(.current-menu-parent)
+  > a:hover,
+.fusion-sticky-menu .fusion-menu > li:not(.current-menu-item):not(.current-menu-ancestor):not(.current-menu-parent)
+  > a.fusion-bar-highlight:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  color: #fff !important;
+}
+
+.fusion-sticky-menu .fusion-menu > li.current-menu-item > a,
+.fusion-sticky-menu .fusion-menu > li.current-menu-ancestor > a,
+.fusion-sticky-menu .fusion-menu > li.current-menu-parent > a {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #E8A23A !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+}
+
+.fusion-sticky-menu .fusion-menu > li.current-menu-item > a::after,
+.fusion-sticky-menu .fusion-menu > li.current-menu-ancestor > a::after,
+.fusion-sticky-menu .fusion-menu > li.current-menu-parent > a::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 12px !important;
+  right: 12px !important;
+  bottom: 2px !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, #E8A23A 0%, #F2C277 100%) !important;
+  border-radius: 2px !important;
+  pointer-events: none;
+}
+
+/* Mobile: match light-on-dark header (original used #111; hard to see on dark bar) */
+.fusion-mobile-menu-icons a,
+.fusion-mobile-nav-holder .fusion-selector-down {
+  color: #fff !important;
+  transition: color 0.25s ease;
+}
+
+.fusion-mobile-menu-icons a:hover {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* =========================================================================
+   Content images (builder rows)
+   ========================================================================= */
+
+.fusion-builder-row img {
+  height: 500px !important;
+  object-fit: cover !important;
+  width: 100% !important;
+}
+
+/* =========================================================================
+   Hero CTAs — friendly two-tone buttons (cyan + amber, calm glow)
+   v2 2026-05-18 · less neon, softer lettering, kid+adult friendly
+   Markup: Snippets/hero_buttons_v1_may_2026.txt
+   ========================================================================= */
+
+.dandy-hip-btn,
+.dandy-hip-btn:visited {
+  /* default = CYAN variant (Music Lessons) */
+  --hip-accent: #18C7D8;
+  --hip-accent-bright: #6FE0EB;
+  --hip-accent-glow: rgba(24, 199, 216, 0.22);
+  --hip-ink: #F7F1E6;
+  --hip-bg-1: #14202B;
+  --hip-bg-2: #0C151E;
+
+  position: relative;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 20px !important;
+  overflow: hidden;
+
+  padding: 16px 36px !important;
+  min-width: 260px !important;
+  border-radius: 6px;
+
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+
+  color: var(--hip-ink) !important;
+  background: linear-gradient(178deg, var(--hip-bg-1) 0%, var(--hip-bg-2) 100%);
+
+  border: 1px solid var(--hip-accent);
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.25s ease,
+    border-color 0.2s ease;
+}
+
+/* AMBER variant (Rehearsal Rooms) — warm gold, less highlighter */
+.dandy-hip-btn--amber {
+  --hip-accent: #E8A23A;
+  --hip-accent-bright: #F2C277;
+  --hip-accent-glow: rgba(232, 162, 58, 0.24);
+}
+
+/* Subtle shimmer sweep on hover */
+.dandy-hip-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -45%;
+  width: 35%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 35%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0) 65%,
+    transparent 100%);
+  transform: skewX(-18deg);
+  transition: left 0.6s ease;
+}
+
+.dandy-hip-btn .dandy-hip-icon,
+.dandy-hip-btn .dandy-hip-eq,
+.dandy-hip-btn .dandy-hip-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* SVG note icon (Button #1) */
+.dandy-hip-btn .dandy-hip-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0 !important;
+  color: var(--hip-accent);
+  filter: drop-shadow(0 0 3px var(--hip-accent-glow));
+}
+
+/* EQ bars (Button #2 — works with either accent via currentColor) */
+.dandy-hip-btn .dandy-hip-eq {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  width: 20px;
+  height: 20px;
+  margin-right: 0 !important;
+  color: var(--hip-accent);
+  filter: drop-shadow(0 0 3px var(--hip-accent-glow));
+}
+.dandy-hip-btn .dandy-hip-eq i {
+  display: block;
+  width: 3px;
+  background: currentColor;
+  border-radius: 2px;
+  transform-origin: bottom;
+}
+.dandy-hip-btn .dandy-hip-eq i:nth-child(1) { height: 38%; }
+.dandy-hip-btn .dandy-hip-eq i:nth-child(2) { height: 78%; }
+.dandy-hip-btn .dandy-hip-eq i:nth-child(3) { height: 52%; }
+.dandy-hip-btn .dandy-hip-eq i:nth-child(4) { height: 92%; }
+
+/* HOVER / FOCUS — calm lift + small accent glow */
+.dandy-hip-btn:hover,
+.dandy-hip-btn:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--hip-accent-bright);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.38),
+    0 0 12px var(--hip-accent-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.dandy-hip-btn:hover::after,
+.dandy-hip-btn:focus-visible::after {
+  left: 130%;
+}
+
+.dandy-hip-btn:hover .dandy-hip-eq i,
+.dandy-hip-btn:focus-visible .dandy-hip-eq i {
+  animation: dandyEqBounce 0.7s ease-in-out infinite;
+}
+.dandy-hip-btn:hover .dandy-hip-eq i:nth-child(2),
+.dandy-hip-btn:focus-visible .dandy-hip-eq i:nth-child(2) { animation-delay: 0.08s; }
+.dandy-hip-btn:hover .dandy-hip-eq i:nth-child(3),
+.dandy-hip-btn:focus-visible .dandy-hip-eq i:nth-child(3) { animation-delay: 0.16s; }
+.dandy-hip-btn:hover .dandy-hip-eq i:nth-child(4),
+.dandy-hip-btn:focus-visible .dandy-hip-eq i:nth-child(4) { animation-delay: 0.24s; }
+
+.dandy-hip-btn:active {
+  transform: translateY(0);
+  filter: brightness(0.96);
+}
+
+.dandy-hip-btn:focus-visible {
+  outline: 2px solid var(--hip-accent-bright);
+  outline-offset: 4px;
+}
+
+@keyframes dandyEqBounce {
+  0%, 100% { transform: scaleY(1); }
+  50%      { transform: scaleY(0.35); }
+}
+
+@media (max-width: 782px) {
+  .dandy-hip-btn {
+    width: 100%;
+    min-width: 0;
+    padding: 16px 22px;
+    font-size: 13.5px;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dandy-hip-btn,
+  .dandy-hip-btn:hover,
+  .dandy-hip-btn:focus-visible {
+    transition: none;
+  }
+  .dandy-hip-btn::after { display: none; }
+  .dandy-hip-btn:hover .dandy-hip-eq i,
+  .dandy-hip-btn:focus-visible .dandy-hip-eq i {
+    animation: none;
+  }
+}
+
+/* =========================================================================
+   Hero title + caption — pure CSS, no slide-field edits required
+   Markup already in slide:
+     Heading: <span class="dm-hero__line">…</span>… + .dm-hero__rule
+     Caption: plain text tagline
+   Strategy: style our own class hooks (guaranteed to match) and
+             neutralise Avada's caption pill with broad !important.
+   ========================================================================= */
+
+/* Each title line as its own block */
+.dm-hero__line {
+  display: block !important;
+}
+
+/* Title sizing — heavy display, bold legibility shadow */
+.dm-hero__line {
+  font-weight: 800 !important;
+  font-size: clamp(40px, 6.2vw, 92px) !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.015em !important;
+  color: #ffffff !important;
+  text-align: center !important;
+  text-shadow:
+    0 2px 14px rgba(0, 0, 0, 0.7),
+    0 1px 3px rgba(0, 0, 0, 0.85),
+    0 0 32px rgba(0, 0, 0, 0.45);
+}
+
+/* Breathing room above the title block — pushes the hero text down so it
+   doesn't crowd the logo/nav above it. */
+.dm-hero__line:first-of-type {
+  margin-top: 64px !important;
+}
+
+/* Accent third line ("in Colchester") — slightly smaller, still part of the
+   headline (NOT tiny). Uses clamp() (not em) because the parent <h1>/<span>
+   font-size in Avada's slider wrapper isn't predictable — em would resolve to
+   a tiny value. */
+.dm-hero__line--accent {
+  font-weight: 500 !important;
+  font-size: clamp(26px, 4vw, 54px) !important;
+  line-height: 1.05 !important;
+  margin-top: 18px !important;
+  letter-spacing: -0.005em !important;
+}
+
+.dm-hero__line--accent em {
+  font-style: italic !important;
+  font-weight: 300 !important;
+  color: #f7f1e6 !important;
+  margin-right: 14px !important;
+}
+
+/* Solid amber "Colchester" — flat yellow-gold, no gradient */
+.dm-hero__city {
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+          background-clip: border-box !important;
+  color: #E8A23A !important;
+  font-weight: 700 !important;
+}
+
+/* Thin gold rule — centered under "in Colchester" */
+.dm-hero__rule {
+  display: block !important;
+  width: 80px !important;
+  height: 2px !important;
+  margin: 18px auto 22px !important;
+  background: linear-gradient(90deg, #E8A23A 0%, #F2C277 100%) !important;
+  border-radius: 2px !important;
+}
+
+/* Left-side dark gradient overlay on the hero slide bg image — gives text a
+   quiet zone without changing the photo itself. */
+.fusion-slider .background.background-image,
+.fusion-slider .background-image,
+[class*="slide"] .background.background-image {
+  position: relative;
+}
+
+.fusion-slider .background.background-image::after,
+.fusion-slider .background-image::after,
+[class*="slide"] .background.background-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.35) 28%,
+    rgba(0, 0, 0, 0.15) 58%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 1;
+}
+
+/* === Fusion Title shortcode (the tagline pill) — actual DOM selectors ===
+   The "caption" is a Fusion Title element: .fusion-title-sc-wrapper containing
+   an .fusion-title with an inner heading. Inline styles force colour #1b287c
+   via --awb-text-color — direct color: with !important beats var() resolution. */
+.fusion-title-sc-wrapper {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 4px auto 26px !important;
+  max-width: 620px !important;
+}
+
+.fusion-title-sc-wrapper .fusion-title,
+.fusion-title-sc-wrapper .fusion-title-heading {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.fusion-title-sc-wrapper .fusion-title-heading,
+.fusion-title-sc-wrapper h1,
+.fusion-title-sc-wrapper h2,
+.fusion-title-sc-wrapper h3,
+.fusion-title-sc-wrapper h4,
+.fusion-title-sc-wrapper h5,
+.fusion-title-sc-wrapper h6,
+.fusion-title-sc-wrapper p {
+  color: #ffffff !important;
+  background: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  font-size: clamp(16px, 1.4vw, 21px) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  text-align: center !important;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.85),
+    0 1px 3px rgba(0, 0, 0, 0.9),
+    0 0 22px rgba(0, 0, 0, 0.5);
+}
+
+/* === Slider caption — kill any remaining dark pill / fill ===
+   Avada slide Caption field can render inside .fusion-slider-caption /
+   .slide-content-container / shortcode wrappers with their own backgrounds
+   (sometimes via inline style or Avada's "Caption Background Color" option).
+   These rules erase any background, border or padding around the tagline so
+   it floats freely on the hero photo. */
+.fusion-slider .fusion-slider-caption,
+.fusion-slider .fusion-title-row,
+.fusion-slider .slide-content-container,
+.fusion-slider .slide-content-container *,
+.fusion-slider .content-container,
+.fusion-slider .content-container *,
+.fusion-slider .shortcode-content,
+.fusion-slider .shortcode-content *,
+.fusion-slider [class*="caption"],
+.fusion-slider [class*="caption"] *,
+.fusion-slider [class*="caption"]::before,
+.fusion-slider [class*="caption"]::after,
+.fusion-slider .caption,
+.fusion-slider .caption *,
+.fusion-slider .caption::before,
+.fusion-slider .caption::after,
+.fusion-slider .heading,
+.fusion-slider .heading *,
+.fusion-slider .heading::before,
+.fusion-slider .heading::after,
+.fusion-slider p,
+.fusion-slider p *,
+.fusion-slider [style*="background"],
+.fusion-title-sc-wrapper,
+.fusion-title-sc-wrapper *,
+.fusion-title-sc-wrapper::before,
+.fusion-title-sc-wrapper::after,
+.dm-hero__line,
+.dm-hero__line *,
+.dm-hero__rule {
+  background: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  text-decoration: none !important;
+}
+
+/* Belt-and-braces: any inline-styled descendant of the slider that carries a
+   background colour gets stripped. Wins against inline style only when our
+   declaration is !important — and it is. */
+.fusion-slider [style*="background"],
+.fusion-slider [style*="rgb"],
+.fusion-slider [style*="#"] {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+/* Force CENTER alignment across the entire slider content tree, regardless of
+   the slide's "Content Alignment" setting. */
+.fusion-slider,
+.fusion-slider .fusion-slider-caption,
+.fusion-slider .slide-content-container,
+.fusion-slider .content-container,
+.fusion-slider .heading,
+.fusion-slider .caption,
+.fusion-slider .shortcode-content,
+.fusion-slider .fusion-button-wrapper,
+.fusion-slider .buttons,
+.fusion-title-sc-wrapper {
+  text-align: center !important;
+  justify-content: center !important;
+}
+
+/* Re-apply the gold rule's gradient — blanket above wiped its background. */
+.dm-hero__rule {
+  background: linear-gradient(90deg, #E8A23A 0%, #F2C277 100%) !important;
+}
+
+/* Re-confirm Colchester's flat amber colour (the blanket only kills bg, not
+   color, but stated here to keep all hero-title styling in one place). */
+.dm-hero__city {
+  color: #E8A23A !important;
+  font-weight: 700 !important;
+}
+
+.fusion-slider .caption,
+.fusion-slider .caption p {
+  color: #ffffff !important;
+  background: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  font-size: clamp(16px, 1.4vw, 21px) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  text-align: center !important;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.85),
+    0 1px 3px rgba(0, 0, 0, 0.9),
+    0 0 22px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Button row — center the two CTAs as a single group with consistent gap.
+   Targets common Avada slide button wrappers; safe on the rest of the site
+   because it only matches inside .fusion-slider. */
+.fusion-slider .buttons,
+.fusion-slider .fusion-button-wrapper,
+.fusion-slider .slide-content-container .buttons,
+.fusion-slider .slide-content-container > p:last-of-type {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 18px !important;
+  margin: 8px auto 0 !important;
+}
+
+/* Mobile */
+@media (max-width: 782px) {
+  .dm-hero__line {
+    font-size: clamp(38px, 11vw, 64px) !important;
+    line-height: 0.98 !important;
+  }
+  .dm-hero__line--accent { font-size: 0.7em !important; }
+  .dm-hero__rule {
+    width: 80px !important;
+    height: 2px !important;
+    margin: 16px auto 20px !important;
+  }
+}
+
