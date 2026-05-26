@@ -628,7 +628,7 @@
   font-size: clamp(40px, 6.2vw, 92px) !important;
   line-height: 0.98 !important;
   letter-spacing: -0.015em !important;
-  color: #ff1493 !important; /* PIPELINE TEST — revert to #ffffff after verifying */
+  color: #ffffff !important;
   text-align: center !important;
   text-shadow:
     0 2px 14px rgba(0, 0, 0, 0.7),
