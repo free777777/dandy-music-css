@@ -944,3 +944,225 @@
   }
 }
 
+/* =========================================================================
+   Lessons showcase — cinematic portfolio cards (page-id-1260 only)
+   v1 2026-06-08
+   Goal: dark, equal-size image cards with the lesson title overlaid on a
+   gradient (matching the hero), no ragged excerpts, clean 3-col grid.
+   Scoped to the Lessons page so other portfolios/grids are untouched.
+   NB: iStock watermarks are baked into the images — CSS can only hide the
+   bottom-right ones under the gradient. Replace images to remove fully.
+   Cello has NO featured image — set one in WP (placeholder styled below).
+   ========================================================================= */
+
+/* --- Even grid: override Avada's float/margins with a real CSS grid --- */
+.page-id-1260 .fusion-portfolio-wrapper {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 26px !important;
+  margin: 0 !important;
+}
+
+.page-id-1260 .fusion-portfolio-post {
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  float: none !important;
+}
+
+/* Kill Avada's per-item inner padding (data-injected .fusion-col-spacing) */
+.page-id-1260 .fusion-portfolio-1 .fusion-portfolio-wrapper .fusion-col-spacing {
+  padding: 0 !important;
+}
+
+/* --- The card: fixed aspect ratio = identical heights, every crop equal --- */
+.page-id-1260 .fusion-portfolio-content-wrapper {
+  position: relative !important;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: none !important;
+  border-radius: 16px;
+  background: #14202b !important;          /* fallback under the image */
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.28),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.page-id-1260 .fusion-portfolio-content-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.40),
+    0 0 0 1px rgba(232, 162, 58, 0.35);
+}
+
+/* --- Image fills the card; override the global 500px content-image rule --- */
+.page-id-1260 .fusion-image-wrapper {
+  position: absolute !important;
+  inset: 0 !important;
+  margin: 0 !important;
+  height: 100% !important;
+  width: 100% !important;
+  overflow: hidden;
+}
+
+.page-id-1260 .fusion-image-wrapper img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 35% !important;   /* keep faces/instruments in frame */
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.page-id-1260 .fusion-portfolio-content-wrapper:hover img {
+  transform: scale(1.07);
+}
+
+/* Permanent cinematic darkening across the whole image for depth + legibility */
+.page-id-1260 .fusion-image-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background:
+    linear-gradient(180deg,
+      rgba(0, 0, 0, 0.10) 0%,
+      rgba(0, 0, 0, 0.00) 28%,
+      rgba(0, 0, 0, 0.30) 58%,
+      rgba(0, 0, 0, 0.82) 100%);
+  transition: background 0.35s ease;
+}
+
+.page-id-1260 .fusion-portfolio-content-wrapper:hover .fusion-image-wrapper::after {
+  background:
+    linear-gradient(180deg,
+      rgba(0, 0, 0, 0.18) 0%,
+      rgba(0, 0, 0, 0.04) 28%,
+      rgba(0, 0, 0, 0.42) 58%,
+      rgba(0, 0, 0, 0.90) 100%);
+}
+
+/* --- Strip Avada's rollover chrome, keep the whole card clickable --- */
+.page-id-1260 .fusion-rollover {
+  background: transparent !important;
+  opacity: 1 !important;
+}
+.page-id-1260 .fusion-rollover-link,
+.page-id-1260 .fusion-rollover-gallery,
+.page-id-1260 .fusion-rollover-sep,
+.page-id-1260 .fusion-rollover-categories {
+  display: none !important;
+}
+.page-id-1260 .fusion-link-wrapper {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 5 !important;       /* sits above gradient + title = full-card link */
+  display: block !important;
+}
+
+/* --- Title block: overlay on the image, not a white box below --- */
+.page-id-1260 .fusion-portfolio-content {
+  position: absolute !important;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4 !important;
+  background: transparent !important;
+  padding: 0 24px 22px !important;
+  text-align: left !important;
+}
+
+.page-id-1260 .fusion-portfolio-content .fusion-content-sep,
+.page-id-1260 .fusion-portfolio-content .fusion-post-content {
+  display: none !important;     /* hide the ragged excerpt + separator */
+}
+
+.page-id-1260 .entry-title.fusion-post-title {
+  margin: 0 !important;
+  line-height: 1.18 !important;
+}
+
+.page-id-1260 .entry-title.fusion-post-title a {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 21px !important;
+  letter-spacing: 0.01em !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75), 0 1px 3px rgba(0, 0, 0, 0.85);
+  transition: color 0.25s ease;
+}
+
+.page-id-1260 .fusion-portfolio-content-wrapper:hover .entry-title.fusion-post-title a {
+  color: #F2C277 !important;
+}
+
+/* "Explore →" cue under the title — appears/slides on hover */
+.page-id-1260 .fusion-portfolio-content::after {
+  content: "Explore lesson \2192";
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #E8A23A;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.page-id-1260 .fusion-portfolio-content-wrapper:hover .fusion-portfolio-content::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Cello (no featured image): graceful dark gradient + note --- */
+.page-id-1260 .fusion-placeholder-image {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background:
+    radial-gradient(120% 100% at 50% 0%, #1d2c3a 0%, #0c151e 70%) !important;
+}
+.page-id-1260 .fusion-placeholder-image::after {
+  content: "Add image";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* --- Responsive: 2-up tablet, 1-up phone --- */
+@media (max-width: 1024px) {
+  .page-id-1260 .fusion-portfolio-wrapper {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-id-1260 .fusion-portfolio-wrapper {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+  .page-id-1260 .fusion-portfolio-content-wrapper {
+    aspect-ratio: 3 / 2;        /* shorter, wider cards read better on phones */
+  }
+  .page-id-1260 .entry-title.fusion-post-title a { font-size: 20px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-id-1260 .fusion-portfolio-content-wrapper,
+  .page-id-1260 .fusion-image-wrapper img,
+  .page-id-1260 .fusion-portfolio-content::after {
+    transition: none !important;
+  }
+}
+
