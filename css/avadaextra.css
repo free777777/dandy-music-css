@@ -1024,16 +1024,17 @@
    element's "Order By" setting instead.
    Post-id map: piano 1088 · guitar 1103 · singing 1135 · violin 1157 ·
    cello 1145 · drums 1109 · bass 1121 · sax 1163 · theory 1177 · DJ 1128 */
-.page-id-1260 [id$="-post-1088"] { order: 1 !important; }   /* Piano */
-.page-id-1260 [id$="-post-1103"] { order: 2 !important; }   /* Guitar */
+/* Sequenced by sales demand — biggest sellers first */
+.page-id-1260 [id$="-post-1088"] { order: 1 !important; }   /* Piano        — #1 seller */
+.page-id-1260 [id$="-post-1103"] { order: 2 !important; }   /* Guitar       — #2 seller */
 .page-id-1260 [id$="-post-1135"] { order: 3 !important; }   /* Singing */
-.page-id-1260 [id$="-post-1157"] { order: 4 !important; }   /* Violin */
-.page-id-1260 [id$="-post-1145"] { order: 5 !important; }   /* Cello */
-.page-id-1260 [id$="-post-1109"] { order: 6 !important; }   /* Drums */
+.page-id-1260 [id$="-post-1109"] { order: 4 !important; }   /* Drums */
+.page-id-1260 [id$="-post-1157"] { order: 5 !important; }   /* Violin */
+.page-id-1260 [id$="-post-1163"] { order: 6 !important; }   /* Saxophone */
 .page-id-1260 [id$="-post-1121"] { order: 7 !important; }   /* Bass */
-.page-id-1260 [id$="-post-1163"] { order: 8 !important; }   /* Saxophone */
-.page-id-1260 [id$="-post-1177"] { order: 9 !important; }   /* Music Theory */
-.page-id-1260 [id$="-post-1128"] { order: 10 !important; }  /* DJ & Production */
+.page-id-1260 [id$="-post-1177"] { order: 8 !important; }   /* Music Theory */
+.page-id-1260 [id$="-post-1128"] { order: 9 !important; }   /* DJ & Production */
+.page-id-1260 [id$="-post-1145"] { order: 10 !important; }  /* Cello        — niche, last */
 
 /* --- The card --- */
 .page-id-1260 .fusion-portfolio-content-wrapper {
