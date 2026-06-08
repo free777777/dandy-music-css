@@ -1017,6 +1017,24 @@
   padding: 0 !important;
 }
 
+/* --- Card display order (visual only) ---------------------------------------
+   Flexbox `order` lets us sequence the cards without touching WordPress.
+   Just renumber below to re-sequence (lowest = first). This affects DISPLAY
+   order only, not source order — for SEO ordering use the Avada Portfolio
+   element's "Order By" setting instead.
+   Post-id map: piano 1088 · guitar 1103 · singing 1135 · violin 1157 ·
+   cello 1145 · drums 1109 · bass 1121 · sax 1163 · theory 1177 · DJ 1128 */
+.page-id-1260 [id$="-post-1088"] { order: 1 !important; }   /* Piano */
+.page-id-1260 [id$="-post-1103"] { order: 2 !important; }   /* Guitar */
+.page-id-1260 [id$="-post-1135"] { order: 3 !important; }   /* Singing */
+.page-id-1260 [id$="-post-1157"] { order: 4 !important; }   /* Violin */
+.page-id-1260 [id$="-post-1145"] { order: 5 !important; }   /* Cello */
+.page-id-1260 [id$="-post-1109"] { order: 6 !important; }   /* Drums */
+.page-id-1260 [id$="-post-1121"] { order: 7 !important; }   /* Bass */
+.page-id-1260 [id$="-post-1163"] { order: 8 !important; }   /* Saxophone */
+.page-id-1260 [id$="-post-1177"] { order: 9 !important; }   /* Music Theory */
+.page-id-1260 [id$="-post-1128"] { order: 10 !important; }  /* DJ & Production */
+
 /* --- The card --- */
 .page-id-1260 .fusion-portfolio-content-wrapper {
   position: relative !important;
