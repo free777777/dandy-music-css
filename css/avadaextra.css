@@ -986,18 +986,32 @@
 }
 .page-id-1260 .fusion-builder-row-1 .fusion-separator { display: none !important; }
 
-/* --- Even 4-up grid: override Avada's float/margins with a real CSS grid --- */
-.page-id-1260 .fusion-portfolio-wrapper {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
+/* --- Even 4-up layout via flexbox; defeat Avada's isotope JS positioning ---
+   Avada absolutely-positions portfolio items with inline left/top/width and
+   sets a fixed wrapper height. We force everything back into normal flow and
+   lay out with flex-wrap. The [id^=] selectors raise specificity above
+   Avada's own ID-scoped rules. */
+.page-id-1260 .fusion-portfolio,
+.page-id-1260 .fusion-portfolio-wrapper[id^="fusion-portfolio"] {
+  height: auto !important;
+}
+.page-id-1260 .fusion-portfolio-wrapper[id^="fusion-portfolio"] {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
   gap: 24px !important;
   margin: 0 !important;
 }
-.page-id-1260 .fusion-portfolio-post {
-  width: auto !important;
+.page-id-1260 .fusion-portfolio-wrapper[id^="fusion-portfolio"] > .fusion-portfolio-post {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  right: auto !important;
+  transform: none !important;
+  float: none !important;
+  width: calc((100% - 72px) / 4) !important;   /* 4 cols · 3 gaps × 24px */
   margin: 0 !important;
   padding: 0 !important;
-  float: none !important;
 }
 .page-id-1260 .fusion-portfolio-1 .fusion-portfolio-wrapper .fusion-col-spacing {
   padding: 0 !important;
@@ -1178,12 +1192,16 @@
 
 /* --- Responsive: 4 → 2 → 1 --- */
 @media (max-width: 1100px) {
-  .page-id-1260 .fusion-portfolio-wrapper { grid-template-columns: repeat(2, 1fr) !important; }
+  .page-id-1260 .fusion-portfolio-wrapper[id^="fusion-portfolio"] > .fusion-portfolio-post {
+    width: calc((100% - 24px) / 2) !important;   /* 2 cols · 1 gap */
+  }
 }
 @media (max-width: 600px) {
-  .page-id-1260 .fusion-portfolio-wrapper {
-    grid-template-columns: 1fr !important;
+  .page-id-1260 .fusion-portfolio-wrapper[id^="fusion-portfolio"] {
     gap: 18px !important;
+  }
+  .page-id-1260 .fusion-portfolio-wrapper[id^="fusion-portfolio"] > .fusion-portfolio-post {
+    width: 100% !important;
   }
 }
 
