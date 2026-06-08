@@ -1151,33 +1151,25 @@
   color: #cfd2ff !important;
 }
 
-/* Description — hide the auto-cut blog excerpt and inject a clean custom
-   one-liner per card (content set per post-id below). Edit the strings to
-   change copy; min-height reserves ~2 lines so card heights stay even.
-   NB: CSS-injected text isn't selectable or indexed — for SEO, paste the
-   same lines into each post's Excerpt field and delete this block. */
+/* Description — show the real WP excerpt (now hand-written per post), muted
+   and clamped to 2 lines so card heights stay even. The "[...]" read-more
+   link is hidden; the whole card is clickable anyway. */
 .page-id-1260 .fusion-content-sep { display: none !important; }
 .page-id-1260 .fusion-post-content {
   margin: 0 0 16px !important;
 }
-.page-id-1260 .fusion-post-content p { display: none !important; }
-.page-id-1260 .fusion-post-content::after {
-  display: block;
-  color: #9a9aa6;
-  font-size: 14px;
-  line-height: 1.5;
+.page-id-1260 .fusion-post-content p {
+  color: #9a9aa6 !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
   min-height: 2.6em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
-.page-id-1260 [id$="-post-1088"] .fusion-post-content::after { content: "Learn piano with friendly, expert tuition for all levels."; }
-.page-id-1260 [id$="-post-1103"] .fusion-post-content::after { content: "Play acoustic, electric or classical guitar with confidence."; }
-.page-id-1260 [id$="-post-1135"] .fusion-post-content::after { content: "Build your voice, confidence and musical expression."; }
-.page-id-1260 [id$="-post-1109"] .fusion-post-content::after { content: "Develop timing, power and groove behind the kit."; }
-.page-id-1260 [id$="-post-1121"] .fusion-post-content::after { content: "Lock in the groove with rhythm and technique that drives the band."; }
-.page-id-1260 [id$="-post-1163"] .fusion-post-content::after { content: "Master smooth melodies and expressive improvisation."; }
-.page-id-1260 [id$="-post-1128"] .fusion-post-content::after { content: "Create, mix and produce tracks like a pro."; }
-.page-id-1260 [id$="-post-1157"] .fusion-post-content::after { content: "Beautiful tone, technique and musical expression."; }
-.page-id-1260 [id$="-post-1145"] .fusion-post-content::after { content: "Rich, warm playing — from first bow to advanced repertoire."; }
-.page-id-1260 [id$="-post-1177"] .fusion-post-content::after { content: "Understand the language of music and unlock your creativity."; }
+.page-id-1260 .fusion-post-content p a { display: none !important; }   /* hide the "[...]" */
 
 /* "Explore lessons →" — indigo, pinned to the bottom of the card */
 .page-id-1260 .fusion-portfolio-content::after {
