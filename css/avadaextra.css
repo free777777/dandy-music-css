@@ -329,6 +329,69 @@
 }
 
 /* =========================================================================
+   Vertical tabs — 3-up feature strip (Avada Content Boxes, icon-with-title)
+   Paste a 3-column [fusion_content_boxes] block at the foot of a tab to get
+   the cream cards + circular gold icons from the reference mock.
+   ========================================================================= */
+
+.fusion-tabs .tab-pane .fusion-content-boxes,
+.fusion-tabs .tab-content .fusion-content-boxes {
+  margin-top: 30px !important;
+}
+
+.fusion-tabs .tab-pane .fusion-content-boxes .content-box-column,
+.fusion-tabs .tab-content .fusion-content-boxes .content-box-column {
+  background: var(--dm-card) !important;
+  border: 1px solid rgba(193, 138, 46, 0.28) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 26px -18px rgba(20, 35, 61, 0.4) !important;
+  margin-bottom: 16px !important;
+  padding: 24px 22px !important;
+}
+
+/* icon → circular gold badge (left of title) */
+.fusion-tabs .tab-pane .fusion-content-boxes .heading .icon,
+.fusion-tabs .tab-content .fusion-content-boxes .heading .icon {
+  margin-bottom: 14px !important;
+}
+.fusion-tabs .tab-pane .fusion-content-boxes .heading .icon i,
+.fusion-tabs .tab-content .fusion-content-boxes .heading .icon i,
+.fusion-tabs .tab-pane .fusion-content-boxes .heading .icon .fontawesome-icon,
+.fusion-tabs .tab-content .fusion-content-boxes .heading .icon .fontawesome-icon {
+  align-items: center !important;
+  background: linear-gradient(135deg, #F6ECD8 0%, #FBF4E6 100%) !important;
+  border: 2px solid var(--dm-gold) !important;
+  border-radius: 50% !important;
+  color: var(--dm-gold) !important;
+  display: inline-flex !important;
+  height: 56px !important;
+  justify-content: center !important;
+  font-size: 22px !important;
+  width: 56px !important;
+}
+
+/* title — bold uppercase navy */
+.fusion-tabs .tab-pane .fusion-content-boxes .content-box-heading,
+.fusion-tabs .tab-content .fusion-content-boxes .content-box-heading {
+  color: var(--dm-navy) !important;
+  font-family: inherit !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.5px !important;
+  line-height: 1.25 !important;
+  margin-bottom: 8px !important;
+  text-transform: uppercase !important;
+}
+
+/* body copy — muted */
+.fusion-tabs .tab-pane .fusion-content-boxes .content-container,
+.fusion-tabs .tab-content .fusion-content-boxes .content-container {
+  color: #5b6678 !important;
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+/* =========================================================================
    Classic Avada header + main menu (transparent bar, light links, black pill active)
    ========================================================================= */
 
