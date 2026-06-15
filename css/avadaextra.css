@@ -136,8 +136,22 @@
 }
 
 /* =========================================================================
-   Fusion vertical tabs (modern stacked style)
+   Fusion vertical tabs — "First Steps" navy / gold / cream rail
+   Reference: Bass Lessons Colchester mock (2026-06-15)
+   Left rail = stacked nav cards · active = navy with gold left-accent +
+   gold circular icon · inactive = cream card, gold ring icon, gold chevron.
    ========================================================================= */
+
+:root {
+  --dm-navy:      #14233d;   /* active card body */
+  --dm-navy-2:    #1d3155;   /* active card gradient end */
+  --dm-gold:      #C18A2E;   /* foil gold — icon rings, chevrons, accent */
+  --dm-gold-lite: #E8A23A;   /* highlight end of gold gradients */
+  --dm-cream:     #F7F1E6;   /* panel background */
+  --dm-card:      #FFFDFA;   /* inactive card body */
+  --dm-ink:       #1c2b45;   /* inactive heading text */
+  --dm-serif: "Playfair Display", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+}
 
 .fusion-tabs .nav-tabs {
   border: none !important;
@@ -155,33 +169,65 @@
 
 .fusion-tabs .nav-tabs li a {
   align-items: center;
-  background: #fff;
-  border: 1px solid #dcdcdc;
+  background: var(--dm-card);
+  border: 1px solid rgba(20, 35, 61, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 10px 26px -18px rgba(20, 35, 61, 0.45);
   display: flex;
   gap: 18px;
-  padding: 26px 34px;
+  overflow: hidden;
+  padding: 20px 24px;
   position: relative;
   text-decoration: none;
-  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  transition: background 0.3s ease, border-color 0.3s ease,
+    transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .fusion-tabs .nav-tabs li a .fusion-tab-heading {
-  color: #111;
-  font-size: 21px !important;
+  color: var(--dm-ink);
+  font-size: 15px !important;
   font-weight: 800;
   letter-spacing: 2px;
+  line-height: 1.25;
   margin: 0;
   text-transform: uppercase;
   transition: color 0.3s ease;
 }
 
+/* FontAwesome glyph → circular badge */
 .fusion-tabs .nav-tabs li a i,
 .fusion-tabs .nav-tabs li a svg {
-  color: #111;
-  font-size: 20px;
-  transition: color 0.3s ease;
+  align-items: center;
+  background: transparent;
+  border: 2px solid var(--dm-gold);
+  border-radius: 50%;
+  color: var(--dm-gold);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 17px;
+  height: 46px;
+  justify-content: center;
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  width: 46px;
+}
+.fusion-tabs .nav-tabs li a svg {
+  height: 46px;
+  padding: 12px;
+  width: 46px;
 }
 
+/* gold chevron on the right edge */
+.fusion-tabs .nav-tabs li a::after {
+  color: var(--dm-gold);
+  content: "\203A";
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  line-height: 0;
+  margin-left: auto;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* left accent bar (revealed when active) */
 .fusion-tabs .nav-tabs li a::before {
   background: transparent;
   content: "";
@@ -190,39 +236,38 @@
   position: absolute;
   top: 0;
   transition: background 0.3s ease;
-  width: 4px;
+  width: 5px;
 }
 
-.fusion-tabs .nav-tabs li a:hover {
-  background: #000 !important;
-  border-color: #000 !important;
-  transform: translateX(6px);
+/* hover — inactive cards only */
+.fusion-tabs .nav-tabs li:not(.active) a:hover {
+  border-color: rgba(193, 138, 46, 0.5);
+  box-shadow: 0 16px 32px -18px rgba(20, 35, 61, 0.55);
+  transform: translateX(4px);
+}
+.fusion-tabs .nav-tabs li:not(.active) a:hover::after {
+  transform: translateX(3px);
 }
 
-.fusion-tabs .nav-tabs li a:hover .fusion-tab-heading,
-.fusion-tabs .nav-tabs li a:hover i,
-.fusion-tabs .nav-tabs li a:hover svg {
+/* active — navy card, gold accent + gold ring icon */
+.fusion-tabs .nav-tabs li.active a {
+  background: linear-gradient(135deg, var(--dm-navy) 0%, var(--dm-navy-2) 100%) !important;
+  border-color: var(--dm-navy) !important;
+  box-shadow: 0 20px 38px -20px rgba(20, 35, 61, 0.7);
+}
+.fusion-tabs .nav-tabs li.active a::before {
+  background: linear-gradient(180deg, var(--dm-gold-lite), var(--dm-gold));
+}
+.fusion-tabs .nav-tabs li.active a .fusion-tab-heading {
   color: #fff !important;
 }
-
-.fusion-tabs .nav-tabs li a:hover::before {
-  background: #fff;
-}
-
-.fusion-tabs .nav-tabs li.active a {
-  background: #000 !important;
-  border-color: #000 !important;
-  transform: translateX(10px);
-}
-
-.fusion-tabs .nav-tabs li.active a .fusion-tab-heading,
 .fusion-tabs .nav-tabs li.active a i,
 .fusion-tabs .nav-tabs li.active a svg {
-  color: #fff !important;
+  border-color: var(--dm-gold) !important;
+  color: var(--dm-gold) !important;
 }
-
-.fusion-tabs .nav-tabs li.active a::before {
-  background: #fff;
+.fusion-tabs .nav-tabs li.active a::after {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .fusion-tabs .nav-tabs li a:focus,
@@ -231,22 +276,56 @@
   outline: none !important;
 }
 
-.fusion-tabs .nav-tabs li a::after {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.08),
-    transparent
-  );
-  content: "";
-  inset: 0;
-  position: absolute;
-  transform: translateX(-100%);
-  transition: transform 0.5s ease;
+/* Decorative gold "seal" tagline below the rail (not in markup) */
+.fusion-tabs .nav-tabs::after {
+  background: linear-gradient(135deg, #F3E9D6 0%, #FBF4E6 100%);
+  border: 1px solid rgba(193, 138, 46, 0.28);
+  border-radius: 14px;
+  color: var(--dm-navy);
+  content: "High-quality tuition.\A Real progress.\A Music for life.";
+  display: block;
+  font-family: var(--dm-serif);
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.55;
+  margin-top: 18px;
+  padding: 24px 26px;
+  white-space: pre;
 }
 
-.fusion-tabs .nav-tabs li a:hover::after {
-  transform: translateX(100%);
+/* =========================================================================
+   Vertical tabs — content pane (navy serif heading + gold rule)
+   ========================================================================= */
+
+.fusion-tabs .tab-pane h2,
+.fusion-tabs .tab-content h2 {
+  color: var(--dm-navy) !important;
+  font-family: var(--dm-serif) !important;
+  font-size: clamp(32px, 3.4vw, 46px) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.04 !important;
+  margin: 0 0 26px !important;
+  padding-bottom: 18px !important;
+  position: relative;
+}
+.fusion-tabs .tab-pane h2::after,
+.fusion-tabs .tab-content h2::after {
+  background: linear-gradient(90deg, var(--dm-gold) 0%, var(--dm-gold-lite) 100%);
+  border-radius: 2px;
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 64px;
+}
+
+.fusion-tabs .tab-pane h3,
+.fusion-tabs .tab-content h3 {
+  color: var(--dm-navy) !important;
+  font-family: var(--dm-serif) !important;
+  font-weight: 700 !important;
 }
 
 /* =========================================================================
