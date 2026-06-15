@@ -1,0 +1,301 @@
+/**
+ * Dandy Music — Custom lesson tabs ("First Steps" navy/gold/cream rail)
+ * ---------------------------------------------------------------------------
+ * SELF-CONTAINED. Loaded via its OWN <link> (separate from avadaextra.css) so
+ * it can never affect the homepage or anything else. EVERY rule is scoped to
+ * the `.dm-lt` wrapper — nothing here leaks out.
+ *
+ * Tabs switch with pure CSS (hidden radio inputs) — no JavaScript, so Avada
+ * won't strip a <script>. Paste the matching HTML (see handover) into the
+ * page content area where the [dandys_*] shortcodes already render.
+ *
+ * Reference: "Bass Lessons Colchester" mock (2026-06-15).
+ */
+
+.dm-lt {
+  --navy:   #14233d;
+  --navy-2: #1f3559;
+  --gold:   #c18a2e;
+  --gold-2: #e8a23a;
+  --ink:    #1c2b45;
+  --body:   #3a4763;
+  --muted:  #6a7384;
+  --card:   #ffffff;
+  --cream:  #f7f2e9;
+  --line:   rgba(20, 35, 61, 0.08);
+  --serif: "Playfair Display", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+
+  background: var(--cream);
+  border-radius: 24px;
+  box-shadow: 0 30px 60px -42px rgba(20, 35, 61, 0.25);
+  color: var(--ink);
+  display: grid;
+  font-family: inherit;
+  gap: 48px;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  padding: 46px;
+  position: relative;
+}
+
+/* radios that drive the tabs — visually gone, still keyboard-focusable */
+.dm-lt-radio {
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  width: 1px;
+}
+
+/* ===== Left rail ========================================================= */
+.dm-lt-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.dm-lt-tab {
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 12px 26px -20px rgba(20, 35, 61, 0.5);
+  cursor: pointer;
+  display: flex;
+  gap: 16px;
+  overflow: hidden;
+  padding: 18px 22px;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background 0.25s ease, border-color 0.25s ease;
+}
+.dm-lt-tab:hover {
+  border-color: rgba(193, 138, 46, 0.45);
+  transform: translateX(4px);
+}
+
+/* left accent bar (revealed when active) */
+.dm-lt-tab::before {
+  background: transparent;
+  border-radius: 14px 0 0 14px;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: background 0.25s ease;
+  width: 5px;
+}
+
+.dm-lt-ic {
+  align-items: center;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 17px;
+  height: 46px;
+  justify-content: center;
+  transition: color 0.25s ease, border-color 0.25s ease;
+  width: 46px;
+}
+.dm-lt-ic i { line-height: 1; }
+
+.dm-lt-label {
+  color: var(--ink);
+  font-size: 14.5px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  line-height: 1.25;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+
+.dm-lt-chev {
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  line-height: 0;
+  margin-left: auto;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+.dm-lt-tab:hover .dm-lt-chev { transform: translateX(3px); }
+
+/* ----- ACTIVE tab (radio checked) -------------------------------------- */
+#dmlt-1:checked ~ .dm-lt-rail label[for="dmlt-1"],
+#dmlt-2:checked ~ .dm-lt-rail label[for="dmlt-2"],
+#dmlt-3:checked ~ .dm-lt-rail label[for="dmlt-3"],
+#dmlt-4:checked ~ .dm-lt-rail label[for="dmlt-4"] {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+  border-color: var(--navy);
+  box-shadow: 0 22px 40px -22px rgba(20, 35, 61, 0.75);
+  transform: none;
+}
+#dmlt-1:checked ~ .dm-lt-rail label[for="dmlt-1"]::before,
+#dmlt-2:checked ~ .dm-lt-rail label[for="dmlt-2"]::before,
+#dmlt-3:checked ~ .dm-lt-rail label[for="dmlt-3"]::before,
+#dmlt-4:checked ~ .dm-lt-rail label[for="dmlt-4"]::before {
+  background: linear-gradient(180deg, var(--gold-2), var(--gold));
+}
+#dmlt-1:checked ~ .dm-lt-rail label[for="dmlt-1"] .dm-lt-label,
+#dmlt-2:checked ~ .dm-lt-rail label[for="dmlt-2"] .dm-lt-label,
+#dmlt-3:checked ~ .dm-lt-rail label[for="dmlt-3"] .dm-lt-label,
+#dmlt-4:checked ~ .dm-lt-rail label[for="dmlt-4"] .dm-lt-label {
+  color: #fff;
+}
+#dmlt-1:checked ~ .dm-lt-rail label[for="dmlt-1"] .dm-lt-chev,
+#dmlt-2:checked ~ .dm-lt-rail label[for="dmlt-2"] .dm-lt-chev,
+#dmlt-3:checked ~ .dm-lt-rail label[for="dmlt-3"] .dm-lt-chev,
+#dmlt-4:checked ~ .dm-lt-rail label[for="dmlt-4"] .dm-lt-chev {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* keyboard focus ring */
+.dm-lt-radio:focus-visible ~ .dm-lt-rail label[for="dmlt-1"],
+.dm-lt-radio:focus-visible ~ .dm-lt-rail label[for="dmlt-2"],
+.dm-lt-radio:focus-visible ~ .dm-lt-rail label[for="dmlt-3"],
+.dm-lt-radio:focus-visible ~ .dm-lt-rail label[for="dmlt-4"] {
+  outline: 2px solid var(--gold-2);
+  outline-offset: 2px;
+}
+
+/* ----- Seal tagline ----------------------------------------------------- */
+.dm-lt-seal {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(193, 138, 46, 0.25);
+  border-radius: 16px;
+  display: flex;
+  gap: 18px;
+  margin-top: 20px;
+  padding: 22px 24px;
+}
+.dm-lt-seal-ic {
+  align-items: center;
+  color: var(--gold);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 46px;
+  height: 54px;
+  justify-content: center;
+  width: 54px;
+}
+.dm-lt-seal-txt {
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ===== Right content ==================================================== */
+.dm-lt-body { min-width: 0; }
+
+.dm-lt-panel { display: none; }
+#dmlt-1:checked ~ .dm-lt-body .dm-lt-panel--1,
+#dmlt-2:checked ~ .dm-lt-body .dm-lt-panel--2,
+#dmlt-3:checked ~ .dm-lt-body .dm-lt-panel--3,
+#dmlt-4:checked ~ .dm-lt-body .dm-lt-panel--4 {
+  animation: dmltfade 0.4s ease;
+  display: block;
+}
+@keyframes dmltfade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.dm-lt-body h2,
+.dm-lt-h {
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.8vw, 50px);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.04;
+  margin: 0 0 18px;
+}
+
+.dm-lt-rule {
+  background: linear-gradient(
+    90deg,
+    var(--gold) 0,
+    var(--gold-2) 64px,
+    rgba(20, 35, 61, 0.14) 64px,
+    rgba(20, 35, 61, 0.14) 230px,
+    transparent 230px
+  );
+  border-radius: 2px;
+  height: 3px;
+  margin: 0 0 28px;
+}
+
+.dm-lt-panel p {
+  color: var(--body);
+  font-size: 17px;
+  line-height: 1.75;
+  margin: 0 0 20px;
+}
+.dm-lt-panel h3 {
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  margin: 26px 0 12px;
+}
+
+/* ----- Feature strip ---------------------------------------------------- */
+.dm-lt-features {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 32px;
+}
+.dm-lt-feat {
+  align-items: flex-start;
+  background: var(--card);
+  border: 1px solid rgba(193, 138, 46, 0.28);
+  border-radius: 14px;
+  display: flex;
+  gap: 16px;
+  padding: 22px 20px;
+}
+.dm-lt-feat-ic {
+  align-items: center;
+  background: linear-gradient(135deg, #f4ead6, #fbf4e6);
+  border-radius: 50%;
+  color: var(--gold);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 22px;
+  height: 56px;
+  justify-content: center;
+  width: 56px;
+}
+.dm-lt-feat-h {
+  color: var(--navy);
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  line-height: 1.3;
+  margin: 0 0 6px;
+  text-transform: uppercase;
+}
+.dm-lt-feat-b {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===== Responsive ======================================================= */
+@media (max-width: 900px) {
+  .dm-lt {
+    gap: 28px;
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+}
+@media (max-width: 680px) {
+  .dm-lt-features { grid-template-columns: 1fr; }
+}
