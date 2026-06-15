@@ -27,7 +27,7 @@
 
   background: var(--cream);
   border-radius: 24px;
-  box-shadow: 0 30px 60px -42px rgba(20, 35, 61, 0.25);
+  box-shadow: 0 30px 70px -40px rgba(20, 35, 61, 0.45);
   color: var(--ink);
   display: grid;
   font-family: inherit;
@@ -35,6 +35,10 @@
   grid-template-columns: minmax(280px, 360px) 1fr;
   padding: 46px;
   position: relative;
+  /* Lift the panel so it overlaps the hero above — layered, editorial depth
+     instead of a floating island. Nudge this value to taste. */
+  margin-top: -72px;
+  z-index: 3;
 }
 
 /* radios that drive the tabs — visually gone, still keyboard-focusable */
