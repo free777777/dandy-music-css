@@ -426,6 +426,109 @@
   .dm-faq-a { padding: 0 18px 18px 56px; }
 }
 
+/* =========================================================================
+   FAQ — CSS-only fallback for Avada's [fusion_accordion]
+   Restyles the stock Avada accordion to match the mock WITHOUT needing the
+   custom faq.php snippet. Scoped to the custom tabs FAQ panel only.
+   (Misses only the intro line — that needs the snippet. Everything else
+   matches: per-item rounded cards, gold circle +/- , serif navy questions.)
+   ========================================================================= */
+
+/* heading gold rule + banner rounding (Avada output) */
+.dm-lt-panel--3 > h2 {
+  margin-bottom: 12px;
+  padding-bottom: 18px;
+  position: relative;
+  text-transform: capitalize;
+}
+.dm-lt-panel--3 > h2::after {
+  background: linear-gradient(90deg, var(--gold), var(--gold-2));
+  border-radius: 2px;
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 64px;
+}
+.dm-lt-panel--3 .wp-block-image img,
+.dm-lt-panel--3 figure img {
+  border-radius: 18px !important;
+}
+
+/* kill the big outer box + dividers */
+.dm-lt .fusion-accordian,
+.dm-lt .fusion-accordian .panel-group {
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* each Q&A → its own rounded white card */
+.dm-lt .fusion-accordian .fusion-panel {
+  background: #fff !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+  margin: 0 0 12px !important;
+  overflow: hidden;
+  padding: 0 !important;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.dm-lt .fusion-accordian .panel-heading { padding: 0 !important; }
+.dm-lt .fusion-accordian .panel-title.toggle { margin: 0 !important; }
+.dm-lt .fusion-accordian .panel-title.toggle > a {
+  align-items: center !important;
+  display: flex !important;
+  gap: 16px !important;
+  padding: 20px 24px !important;
+  text-decoration: none !important;
+}
+
+/* +/- icon wrapped in a gold circle */
+.dm-lt .fusion-accordian .fusion-toggle-icon-wrapper {
+  align-items: center !important;
+  border: 2px solid var(--gold) !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  flex: 0 0 auto !important;
+  height: 30px !important;
+  justify-content: center !important;
+  width: 30px !important;
+}
+.dm-lt .fusion-accordian .fusion-toggle-icon-wrapper i {
+  color: var(--gold) !important;
+  font-size: 13px !important;
+  height: auto !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  width: auto !important;
+}
+
+/* serif navy question */
+.dm-lt .fusion-accordian .fusion-toggle-heading {
+  color: var(--navy) !important;
+  font-family: var(--serif) !important;
+  font-size: 19px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+}
+
+/* answer */
+.dm-lt .fusion-accordian .panel-body.toggle-content {
+  color: var(--body) !important;
+  font-family: inherit !important;
+  font-size: 15.5px !important;
+  line-height: 1.7 !important;
+  padding: 0 24px 22px 70px !important;
+}
+
+/* open card emphasis */
+.dm-lt .fusion-accordian .fusion-panel:has(a[aria-expanded="true"]) {
+  border-color: rgba(193, 138, 46, 0.35) !important;
+  box-shadow: 0 16px 34px -24px rgba(20, 35, 61, 0.5) !important;
+}
+
 /* ===== Responsive ======================================================= */
 @media (max-width: 900px) {
   .dm-lt {
