@@ -552,6 +552,146 @@
   box-shadow: 0 16px 34px -24px rgba(20, 35, 61, 0.5) !important;
 }
 
+/* =========================================================================
+   HOW TO JOIN — custom panel (HOW TO JOIN panel)
+   Output by the [dandys_how_to_join] shortcode (how-to-join.php). Matches the
+   "How to Join" mock (2026-06-22): serif navy heading with star + heart
+   doodles, rounded hero image, three pastel icon-circle steps with hairline
+   dividers, full-width gold "APPLY TODAY" button.
+   ========================================================================= */
+
+.dm-join { min-width: 0; }
+
+/* heading row with star + heart doodles */
+.dm-join-head {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  margin: 0 0 24px;
+}
+.dm-join-h {
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: clamp(34px, 4.4vw, 58px);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.0;
+  margin: 0;
+}
+.dm-join-doodle {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+.dm-join-doodle--star {
+  color: var(--gold-2);
+  font-size: 22px;
+  transform: translateY(-10px);
+}
+.dm-join-doodle--heart {
+  color: #f0a6a0;          /* soft coral, per mock */
+  font-size: 26px;
+  transform: translateY(-8px);
+}
+
+/* hero image */
+.dm-join-figure {
+  border-radius: 18px;
+  margin: 0 0 8px;
+  overflow: hidden;
+}
+.dm-join-figure img {
+  border-radius: 18px;
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+/* steps */
+.dm-join-steps {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 0 0;
+}
+.dm-join-step {
+  align-items: flex-start;
+  display: flex;
+  gap: 22px;
+  padding: 26px 4px;
+}
+.dm-join-step + .dm-join-step {
+  border-top: 1px solid rgba(193, 138, 46, 0.18);   /* hairline divider */
+}
+.dm-join-step p {
+  color: var(--navy);
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* pastel icon circles — navy glyph on a soft tint, per mock */
+.dm-join-ic {
+  align-items: center;
+  border-radius: 50%;
+  color: var(--navy);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 22px;
+  height: 58px;
+  justify-content: center;
+  margin-top: 2px;
+  width: 58px;
+}
+.dm-join-ic--mail  { background: #f7dcdd; }   /* rose */
+.dm-join-ic--users { background: #d8eae2; }   /* mint */
+.dm-join-ic--note  { background: #f6e7c4; }   /* warm cream */
+
+/* full-width gold CTA */
+.dm-join-cta {
+  align-items: center;
+  background: linear-gradient(135deg, var(--gold-2) 0%, var(--gold) 100%);
+  border-radius: 12px;
+  box-shadow: 0 18px 34px -20px rgba(193, 138, 46, 0.85);
+  color: #fff;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 30px;
+  padding: 22px 28px;
+  position: relative;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+.dm-join-cta:hover {
+  box-shadow: 0 24px 44px -20px rgba(193, 138, 46, 0.95);
+  filter: brightness(1.04);
+  transform: translateY(-2px);
+}
+.dm-join-cta:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+.dm-join-cta-txt {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+}
+.dm-join-cta-chev {
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  line-height: 0;
+}
+.dm-join-cta:hover .dm-join-cta-chev { transform: translateX(3px); }
+
+@media (max-width: 600px) {
+  .dm-join-step { gap: 16px; padding: 20px 2px; }
+  .dm-join-ic { font-size: 18px; height: 48px; width: 48px; }
+  .dm-join-step p { font-size: 16px; }
+  .dm-join-cta-txt { font-size: 16px; letter-spacing: 1.8px; }
+}
+
 /* ===== Responsive ======================================================= */
 @media (max-width: 900px) {
   .dm-lt {
