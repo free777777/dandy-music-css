@@ -257,18 +257,18 @@
 /* ----- Feature strip ---------------------------------------------------- */
 .dm-lt-features {
   display: grid;
-  gap: 18px;
+  gap: 16px;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 36px;
+  margin-top: 28px;
 }
 .dm-lt-feat {
   align-items: center;          /* centered vertical card (per mock) */
   background: var(--card);
   border: 1px solid rgba(193, 138, 46, 0.28);
-  border-radius: 16px;
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
-  padding: 34px 26px;
+  padding: 24px 20px;
   text-align: center;
 }
 .dm-lt-feat > div { width: 100%; }   /* text wrapper stretches so text centers */
@@ -278,47 +278,47 @@
   background: linear-gradient(135deg, #f4ead6, #fbf4e6);
   border: 1px solid rgba(193, 138, 46, 0.30);
   border-radius: 50%;
-  box-shadow: 0 0 0 6px rgba(193, 138, 46, 0.06);  /* subtle outer ring */
+  box-shadow: 0 0 0 5px rgba(193, 138, 46, 0.05);  /* subtle outer ring */
   color: var(--gold);
   display: inline-flex;
   flex: 0 0 auto;
-  font-size: 26px;
-  height: 66px;
+  font-size: 20px;
+  height: 50px;
   justify-content: center;
-  margin-bottom: 22px;
-  width: 66px;
+  margin-bottom: 16px;
+  width: 50px;
 }
 
 .dm-lt-feat-h {
   color: var(--navy);
   font-family: var(--serif);     /* serif title (per mock) */
-  font-size: 21px;
+  font-size: 17px;
   font-weight: 700;
-  letter-spacing: 1px;
-  line-height: 1.2;
+  letter-spacing: 0.8px;
+  line-height: 1.22;
   margin: 0;
   text-transform: uppercase;
 }
 /* gold divider with centre diamond */
 .dm-lt-feat-h::after {
   background:
-    linear-gradient(var(--gold), var(--gold)) left center/26px 1px no-repeat,
-    linear-gradient(var(--gold), var(--gold)) right center/26px 1px no-repeat;
+    linear-gradient(var(--gold), var(--gold)) left center/22px 1px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) right center/22px 1px no-repeat;
   color: var(--gold);
   content: "\25C6";
   display: block;
-  font-size: 9px;
-  line-height: 9px;
-  margin: 16px auto 0;
+  font-size: 8px;
+  line-height: 8px;
+  margin: 12px auto 0;
   text-align: center;
-  width: 72px;
+  width: 62px;
 }
 
 .dm-lt-feat-b {
   color: var(--body);
-  font-size: 15.5px;
-  line-height: 1.7;
-  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 12px 0 0;
 }
 
 /* =========================================================================
