@@ -658,20 +658,21 @@
 .dm-join-cta {
   align-items: center;
   background: linear-gradient(135deg, var(--gold-2) 0%, var(--gold) 100%);
-  border-radius: 12px;
-  box-shadow: 0 18px 34px -20px rgba(193, 138, 46, 0.85);
+  border: 1px solid rgba(20, 35, 61, 0.22);   /* slight dark edge for definition */
+  border-radius: 11px;
+  box-shadow: 0 12px 24px -18px rgba(193, 138, 46, 0.7);
   color: #fff;
   display: flex;
-  gap: 14px;
+  gap: 12px;
   justify-content: center;
   margin-top: 30px;
-  padding: 22px 28px;
+  padding: 15px 26px;          /* slimmer, more elegant */
   position: relative;
   text-decoration: none;
   transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
 }
 .dm-join-cta:hover {
-  box-shadow: 0 24px 44px -20px rgba(193, 138, 46, 0.95);
+  box-shadow: 0 18px 32px -18px rgba(193, 138, 46, 0.85);
   filter: brightness(1.04);
   transform: translateY(-2px);
 }
@@ -681,15 +682,15 @@
 }
 .dm-join-cta-txt {
   color: #fff;
-  font-size: 18px;
+  font-size: 15.5px;
   font-weight: 800;
-  letter-spacing: 2.4px;
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 .dm-join-cta-chev {
   color: #fff;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 26px;
+  font-size: 22px;
   line-height: 0;
 }
 .dm-join-cta:hover .dm-join-cta-chev { transform: translateX(3px); }
