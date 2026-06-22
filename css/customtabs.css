@@ -268,7 +268,7 @@
   border-radius: 14px;
   display: flex;
   flex-direction: column;
-  padding: 24px 20px;
+  padding: 22px 18px;
   text-align: center;
 }
 .dm-lt-feat > div { width: 100%; }   /* text wrapper stretches so text centers */
@@ -285,21 +285,25 @@
   font-size: 20px;
   height: 50px;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 22px;          /* a little more breathing room above title */
   width: 50px;
 }
 
 .dm-lt-feat-h {
+  align-items: center;
   color: var(--navy);
+  display: flex;                /* lets the divider pin to the bottom */
+  flex-direction: column;
   font-family: var(--serif);     /* serif title (per mock) */
-  font-size: 17px;
+  font-size: 16.5px;
   font-weight: 700;
   letter-spacing: 0.8px;
   line-height: 1.22;
   margin: 0;
+  min-height: 2.5em;            /* reserve ~2 lines so all dividers align */
   text-transform: uppercase;
 }
-/* gold divider with centre diamond */
+/* gold divider with centre diamond — pinned to bottom of the reserved title box */
 .dm-lt-feat-h::after {
   background:
     linear-gradient(var(--gold), var(--gold)) left center/22px 1px no-repeat,
@@ -310,14 +314,15 @@
   font-size: 8px;
   line-height: 8px;
   margin: 12px auto 0;
+  margin-top: auto;            /* push divider to a consistent baseline across cards */
   text-align: center;
   width: 62px;
 }
 
 .dm-lt-feat-b {
   color: var(--body);
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 13.5px;
+  line-height: 1.55;
   margin: 12px 0 0;
 }
 
