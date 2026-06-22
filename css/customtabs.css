@@ -431,6 +431,10 @@
   opacity: 0;
   transform: translate(-50%, -50%) scaleY(0);
 }
+/* hover: slightly darker grey, never orange */
+.dm-faq-q:hover .dm-faq-tog { border-color: #aab0bb; }
+.dm-faq-q:hover .dm-faq-tog::before,
+.dm-faq-q:hover .dm-faq-tog::after { background: #6f7682; }
 
 /* answer */
 .dm-faq-a {
@@ -527,6 +531,17 @@
   line-height: 1 !important;
   margin: 0 !important;
   width: auto !important;
+}
+/* hover: slightly darker grey, never Avada's orange */
+.dm-lt .fusion-accordian .fusion-panel:hover .fusion-toggle-icon-wrapper,
+.dm-lt .fusion-accordian .panel-title.toggle > a:hover .fusion-toggle-icon-wrapper,
+.dm-lt .fusion-accordian .panel-title.toggle > a:focus .fusion-toggle-icon-wrapper {
+  border-color: #aab0bb !important;
+}
+.dm-lt .fusion-accordian .fusion-panel:hover .fusion-toggle-icon-wrapper i,
+.dm-lt .fusion-accordian .panel-title.toggle > a:hover .fusion-toggle-icon-wrapper i,
+.dm-lt .fusion-accordian .panel-title.toggle > a:focus .fusion-toggle-icon-wrapper i {
+  color: #6f7682 !important;
 }
 
 /* serif navy question */
