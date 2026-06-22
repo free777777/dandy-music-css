@@ -303,20 +303,16 @@
   min-height: 2.5em;            /* reserve ~2 lines so all dividers align */
   text-transform: uppercase;
 }
-/* gold divider with centre diamond — pinned to bottom of the reserved title box */
+/* simple straight gold rule — pinned to bottom of the reserved title box */
 .dm-lt-feat-h::after {
-  background:
-    linear-gradient(var(--gold), var(--gold)) left center/22px 1px no-repeat,
-    linear-gradient(var(--gold), var(--gold)) right center/22px 1px no-repeat;
-  color: var(--gold);
-  content: "\25C6";
+  background: var(--gold);
+  border-radius: 1px;
+  content: "";
   display: block;
-  font-size: 8px;
-  line-height: 8px;
+  height: 1.5px;
   margin: 12px auto 0;
   margin-top: auto;            /* push divider to a consistent baseline across cards */
-  text-align: center;
-  width: 62px;
+  width: 54px;
 }
 
 .dm-lt-feat-b {
