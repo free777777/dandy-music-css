@@ -303,16 +303,16 @@
   min-height: 2.5em;            /* reserve ~2 lines so all dividers align */
   text-transform: uppercase;
 }
-/* simple straight gold rule — pinned to bottom of the reserved title box */
+/* soft light-grey hairline — an understated effect, not a hard rule;
+   pinned to bottom of the reserved title box so all three align */
 .dm-lt-feat-h::after {
-  background: var(--gold);
-  border-radius: 1px;
+  background: rgba(20, 35, 61, 0.14);   /* light silver-grey */
   content: "";
   display: block;
-  height: 1.5px;
+  height: 1px;
   margin: 12px auto 0;
-  margin-top: auto;            /* push divider to a consistent baseline across cards */
-  width: 54px;
+  margin-top: auto;
+  width: 88px;                          /* longer, softer span */
 }
 
 .dm-lt-feat-b {
