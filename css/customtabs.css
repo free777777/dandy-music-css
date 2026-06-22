@@ -399,9 +399,9 @@
   line-height: 1.3;
 }
 
-/* gold circular +/- toggle */
+/* light-grey circular +/- toggle — elegant, understated */
 .dm-faq-tog {
-  border: 2px solid var(--gold);
+  border: 1.5px solid #c4c9d2;
   border-radius: 50%;
   flex: 0 0 auto;
   height: 30px;
@@ -410,7 +410,7 @@
 }
 .dm-faq-tog::before,
 .dm-faq-tog::after {
-  background: var(--gold);
+  background: #9097a3;
   content: "";
   left: 50%;
   position: absolute;
@@ -509,10 +509,10 @@
   text-decoration: none !important;
 }
 
-/* +/- icon wrapped in a gold circle */
+/* +/- icon wrapped in a light-grey circle */
 .dm-lt .fusion-accordian .fusion-toggle-icon-wrapper {
   align-items: center !important;
-  border: 2px solid var(--gold) !important;
+  border: 1.5px solid #c4c9d2 !important;
   border-radius: 50% !important;
   display: inline-flex !important;
   flex: 0 0 auto !important;
@@ -521,7 +521,7 @@
   width: 30px !important;
 }
 .dm-lt .fusion-accordian .fusion-toggle-icon-wrapper i {
-  color: var(--gold) !important;
+  color: #9097a3 !important;
   font-size: 13px !important;
   height: auto !important;
   line-height: 1 !important;
