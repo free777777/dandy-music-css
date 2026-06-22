@@ -627,6 +627,15 @@
   line-height: 1.7;
   margin: 0;
 }
+.dm-join-step a {
+  color: var(--gold);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(193, 138, 46, 0.4);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+.dm-join-step a:hover { text-decoration-color: var(--gold); }
 
 /* pastel icon circles — navy glyph on a soft tint, per mock */
 .dm-join-ic {
