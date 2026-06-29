@@ -1275,3 +1275,55 @@
   }
 }
 
+
+/* =========================================================================
+   2026-06-29 — Hero & title-bar legibility
+   Dark overlays so white text always lands on darkness, plus an even
+   contrast between the two homepage CTA buttons.
+   Add CSS class "hero-home" to the homepage hero container in Avada
+   (Container → Extras → CSS Class).
+   ========================================================================= */
+
+/* --- Homepage hero: soft radial darken behind the centre text column --- */
+.fusion-fullwidth.hero-home {
+  position: relative;
+}
+.fusion-fullwidth.hero-home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.15) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+.fusion-fullwidth.hero-home > .fusion-builder-row {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Even out the outlined "Rehearsal Rooms" CTA on the bright fretboard --- */
+.hero-home .fusion-button.button-default {
+  background: rgba(0, 0, 0, 0.25) !important;
+}
+
+/* --- Page title bars (inner pages): flat dark overlay over the bg image --- */
+.fusion-page-title-bar {
+  position: relative;
+}
+.fusion-page-title-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  z-index: 0;
+}
+.fusion-page-title-bar .fusion-page-title-row {
+  position: relative;
+  z-index: 1;
+}
